@@ -1,0 +1,548 @@
+<?xml version="1.0"?>
+<radio id="yle">
+ <channels>
+
+  <!-- Streams source: http://yle.fi/aihe/artikkeli/2014/12/13/radio-ohjelmien-kuuntelu-lataus-ja-tilaus -->
+
+  <!--
+  <channel>
+        <name></name>
+        <streams>
+         <stream quality="low"></stream>
+         <stream quality="medium"></stream>
+         <stream quality="high"></stream>
+        </streams>
+        <news></news>
+        <somes>
+         <some type="twitter"></some>
+         <some type="facebook"></some>
+         <some type="youtube"></some>
+         <some type="instagram"></some>
+        </somes>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
+  -->
+
+  <channel>
+        <name>YLE Radio 1</name>
+        <category></category>
+        <streams>
+	<stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_1_64@113878</stream>
+        <stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_1@113878/master.m3u8</stream>
+        </streams>
+        <songInfo>r01</songInfo>
+        <progInfo>yleradio1</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radio/yleradio1/</some>
+         <some type="twitter">https://twitter.com/yleradio1</some>
+         <some type="facebook">https://www.facebook.com/yleradio1</some>
+        </somes>
+  </channel>
+
+  <channel>
+	<name>YLE X3M</name>
+        <category></category>
+	<streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_6_64@113883</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_6@113883/master.m3u8</stream>
+	</streams>
+	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
+        <songInfo>r44</songInfo>
+	<progInfo>extrem</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/extrem/</some>
+         <some type="twitter">https://twitter.com/RadioX3M</some>
+         <some type="facebook">https://m.facebook.com/radiox3m</some>
+         <some type="youtube">http://m.youtube.com/user/RadioX3M</some>
+         <some type="instagram">http://instagram.com/radiox3m</some>
+        </somes>
+  </channel>
+
+  <channel>
+	<name>YLEX</name>
+        <category></category>
+	<streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_2_64@113879</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_2@113879/master.m3u8</stream>
+	</streams>
+	<news type="rss"></news>
+        <songInfo>r02</songInfo>
+	<progInfo>ylex</progInfo>
+	<somes>
+         <some type="web">http://ylex.yle.fi/</some>
+	 <some type="twitter">http://www.twitter.com/ylex</some>
+	 <some type="facebook">http://www.facebook.com/ylex.fi</some>
+	 <some type="youtube">http://www.youtube.com/user/ylexvideos</some>
+	 <some type="instagram">http://instagram.com/ylex_official</some>
+	</somes>
+  </channel>
+
+    <channel>
+        <name>YLE Klassinen</name>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_4_64@113881</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_4@113881/master.m3u8</stream>
+        </streams>
+        <progInfo>ylenklassinen</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/musiikki/klassinen/</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Puhe</name>
+        <category></category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_5_64@113882</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_5@113882/master.m3u8</stream>
+        </streams>
+        <news></news>
+        <somes>
+         <some type="web">http://yle.fi/puhe/</some>
+         <some type="facebook">https://www.facebook.com/ylepuhe</some>
+        </somes>
+        <songInfo></songInfo>
+        <progInfo>puhe</progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Sámi Radio</name>
+        <category></category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_33_64@113910</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_33@113910/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/sapmi/</some>
+         <some type="twitter">https://twitter.com/YleSapmi</some>
+         <some type="facebook">https://www.facebook.com/Yle.Sapmi1</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>Elävän Arkiston nettiradio</name>
+        <category></category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_8_64@113885</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_8@113885/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/elavaarkisto/</some>
+         <some type="facebook">https://www.facebook.com/elavaarkisto</some>
+        </somes>
+  </channel>
+
+  <channel>
+	<name>YLE Radio Vega (Åboland)</name>
+        <category>Radio Vega</category>
+	<streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_32_64@113909</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_32@113909/master.m3u8</stream>
+
+	</streams>
+	<news>http://svenska.yle.fi/rss/radio-vega</news>
+	<progInfo>vega/aboland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Radio Vega (Österbotten)</name>
+        <category>Radio Vega</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_31_64@113908</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_31@113908/master.m3u8</stream>
+
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/osterbotten</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+         <some type="twitter">https://twitter.com/Yle_Osterbotten</some>
+         <some type="facebook">https://www.facebook.com/yle.osterbotten</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Radio Vega (Östnyland)</name>
+        <category>Radio Vega</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_29_64@113906</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_29@113906/master.m3u8</stream>
+
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/ostnyland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Radio Vega (Västnyland)</name>
+        <category>Radio Vega</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_30_64@113907</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_30@113907/master.m3u8</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/vastnyland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Radio Vega (Huvudstadsregionen)</name>
+        <category>Radio Vega</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_7_64@113884</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_7@113884/master.m3u8</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/huvudstad</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Ylen aikainen)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_3_64@113880</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_3@113880/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>10/6668480</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Turku)</name>
+        <category>Radio Suomi</category>
+	<streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_27_64@113904</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_27@113904/master.m3u8</stream>
+	</streams>
+        <songInfo></songInfo>
+	<progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Tampere)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_26_64@113903</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_26@113903/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+  
+  <channel>
+        <name>YLE Suomi (Satakunta)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_23_64@113900</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_23@113900/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Oulu)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_22_64@113899</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_22@113899/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Etelä-Karjalan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_19_64@113896</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_19@113896/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>50/6673350</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Etelä-Savon Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_21_64@113898</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_21@113898/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>61/6673349</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Kainuun Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_13_64@113890</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_13@113890/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>81/6673358</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Kymeenlaakson Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_16_64@113893</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_16@113893/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>51/6673348</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Lahden Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_18_64@113895</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_18@113895/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>41/6673341</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Pohjanmaan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_28_64@113905</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_28@113905/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>70/6668506</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Pohjois-Karjalan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_11_64@113888</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_11@113888/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>62/6673353</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Häme)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_10_64@113887</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_10@113887/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>42/6673342</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Itä-Uusimaa)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_24_64@113901</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_24@113901/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>12/6673356</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Keski-Pohjanmaa)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_15_64@113892</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_15@113892/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>71/6673352</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Keski-Suomi)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_12_64@113889</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_12@113889/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>30/6673361</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Perämeri)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_14_64@113891</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_14@113891/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>91/6673354</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Savo)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_17_64@113894</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_17@113894/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>60/6673351</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Lappi)</name>
+        <category>Radio Suomi</category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_25_64@113902</stream>
+	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_25@113902/master.m3u8</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+ </channels>
+</radio>
