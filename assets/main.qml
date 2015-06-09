@@ -22,7 +22,7 @@ Page {
             }
         }
         actions: ActionItem {
-            title: "Invite"
+            title: qsTr("Invite")
             // enabled: bbm.allowed
             imageSource: "asset:///images/share.png"
             onTriggered: {
@@ -36,13 +36,16 @@ Page {
     
     actions: [
         ActionItem {
-            title: mp.mediaState==MediaState.Started ? "Stop" : "Play"
+            title: mp.mediaState==MediaState.Started ? qsTr("Stop") : qsTr("Play")
             imageSource: mp.mediaState==MediaState.Started ? "asset:///images/stop.png" : "asset:///images/play.png"
             onTriggered: {
-                if (mp.mediaState==MediaState.Started)
+                if (mp.mediaState==MediaState.Started) {
+                    console.debug("Revoke")
                     npc.revoke();
-                else 
+                } else {
+                    console.debug("Acquire")      
                     npc.acquire();
+                }
             }
             ActionBar.placement: ActionBarPlacement.OnBar
             enabled: mp.mediaState!=MediaState.Unprepared
@@ -50,7 +53,8 @@ Page {
     ]
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
-        verticalAlignment: VerticalAlignment.Fill
+        verticalAlignment: VerticalAlignment.Fill            
+        
         ListView {
             id: radioList
             dataModel: dataModelRadio
@@ -114,21 +118,22 @@ Page {
                 var s=getHlsStream(m.streams.stream)
                 if (s) {
                     currentChannel=m.name;
+                    npc.revoke();
                     mp.sourceUrl=s[".data"];
-                    mp.prepare();
+                    //mp.prepare();
                     radioList.select(indexPath)
+                    npc.acquire();                    
                 } else {                
                     currentChannel='';
                     mp.sourceUrl='';
+                    npc.revoke();
                     mp.reset();                    
                 }
             }
             
-            function hasWebType(type, data) {
-                console.debug(JSON.stringify(data))
+            function hasWebType(type, data) {                
                 for (var i in data) {
-                    var s=data[i];
-                    console.debug(JSON.stringify(s))
+                    var s=data[i];                    
                     if (s.type==type) {                        
                         return true;                        
                     }
@@ -138,8 +143,7 @@ Page {
             
             function web(type, data) {
                 for (var i in data) {
-                    var s=data[i];
-                    console.debug(JSON.stringify(s))
+                    var s=data[i];                    
                     if (s.type==type) {
                         _yradio.openWebSite(s[".data"]);                        
                         return true;                        
@@ -152,12 +156,9 @@ Page {
                 _yradio.openWebSite(url);
             }
             
-            function getHlsStream(m) {                
-                console.debug(JSON.stringify(m))
-                
+            function getHlsStream(m) {                                            
                 for (var i in m) {
                     var s=m[i];
-                    console.debug(JSON.stringify(s))                    
                     if (s.type=='hls') {                        
                         return s;                        
                     }
@@ -200,17 +201,31 @@ Page {
             mediaState: mp.mediaState
             iconUrl: "asset:///images/icon.png"
             onAcquired: {
+                console.debug("onAcquired")
+                
+                var metadata = { "title": root.currentChannel, "artist": "YLE Radio" };
+                npc.setMetaData(metadata);
+                
                 mp.play();
             }            
             onPause: {
-                mp.pause()
+                console.debug("onPause")
+                mp.pause();
             }            
             onPlay: {
-                mp.play()
+                console.debug("onPlay")
+                mp.play();
             }            
             onRevoked: {
-                mp.stop()
+                console.debug("onRevoked")
+                mp.stop();
             }
+            onStop: {
+                mp.stop();
+            }
+            overlayStyle: OverlayStyle.Fancy
+            nextEnabled: false
+            previousEnabled: false
         },
         AboutSheet {
             id: aboutSheet
