@@ -30,7 +30,7 @@ Sheet {
                 implicitLayoutAnimationsEnabled: false
                 
                 Label {
-                    text: "Y-Radio 1.0.0"
+                    text: "Y-Radio "+_yradio.getVersion();
                     textStyle.fontSize: FontSize.Large
                     verticalAlignment: VerticalAlignment.Fill
                     textStyle.textAlign: TextAlign.Center
