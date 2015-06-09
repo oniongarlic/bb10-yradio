@@ -6,3 +6,7 @@ LIBS += -lbbmultimedia -lbbdata
 LIBS += -lbb -lbbsystem -lbbdevice -lbbplatform -lbbplatformbbm
 
 include(config.pri)
+
+TRANSLATIONS = \
+    $${TARGET}_fi.ts \
+    $${TARGET}.ts
