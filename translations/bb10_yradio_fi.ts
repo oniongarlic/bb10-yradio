@@ -38,5 +38,17 @@
         <source>Follow on YouTube</source>
         <translation>Seuraa YouTube:ssa</translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation>Pysäytä</translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation>Soita</translation>
+    </message>
+    <message>
+        <source>Invite</source>
+        <translation>Kutsu</translation>
+    </message>
 </context>
 </TS>
