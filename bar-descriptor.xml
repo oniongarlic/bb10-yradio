@@ -94,7 +94,6 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
-    <asset path="/home/milang/momentics-workspace/bb10-yradio">bb10-yradio</asset>
     <asset path="icon94.png">icon94.png</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
