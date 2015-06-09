@@ -47,7 +47,7 @@ ApplicationUI::ApplicationUI() :
     QCoreApplication::setOrganizationDomain("org.tal");
     QCoreApplication::setOrganizationName("TalOrg");
     QCoreApplication::setApplicationName("Y-Radio");
-    QCoreApplication::setApplicationVersion("1.0.0");
+    QCoreApplication::setApplicationVersion("1.0.1");
 
     m_netconf=new QNetworkConfigurationManager();
     res = QObject::connect(m_netconf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onNetworkOnlineChanged(bool)));
@@ -132,8 +132,14 @@ void ApplicationUI::onSystemLanguageChanged()
 {
     QCoreApplication::instance()->removeTranslator(m_pTranslator);
     QString locale_string = QLocale().name();
+    qDebug() << "Locale is now: " << locale_string;
+
     QString file_name = QString("bb10_yradio_%1").arg(locale_string);
+
+    qDebug() << "Trying to load: " << file_name;
     if (m_pTranslator->load(file_name, "app/native/qm")) {
         QCoreApplication::instance()->installTranslator(m_pTranslator);
+    } else {
+        qWarning() << "Failed to load translation for " << locale_string;
     }
 }
