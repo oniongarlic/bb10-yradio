@@ -1,6 +1,9 @@
 #include "applicationui.hpp"
 
 #include <QTimer>
+#include <QtGui/QImage>
+#include <QtGui/QPainter>
+#include <QtGui/QFont>
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
@@ -47,7 +50,7 @@ ApplicationUI::ApplicationUI() :
     QCoreApplication::setOrganizationDomain("org.tal");
     QCoreApplication::setOrganizationName("TalOrg");
     QCoreApplication::setApplicationName("Y-Radio");
-    QCoreApplication::setApplicationVersion("1.0.1");
+    QCoreApplication::setApplicationVersion("1.0.3");
 
     m_netconf=new QNetworkConfigurationManager();
     res = QObject::connect(m_netconf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onNetworkOnlineChanged(bool)));
