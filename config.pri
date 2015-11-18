@@ -37,7 +37,10 @@ simulator {
 config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/AboutSheet.qml) \
+        $$quote($$BASEDIR/assets/ChannelsListView.qml) \
+        $$quote($$BASEDIR/assets/SettingsSheet.qml) \
         $$quote($$BASEDIR/assets/images/chat.png) \
+        $$quote($$BASEDIR/assets/images/eq.png) \
         $$quote($$BASEDIR/assets/images/icon.png) \
         $$quote($$BASEDIR/assets/images/play.png) \
         $$quote($$BASEDIR/assets/images/share.png) \
