@@ -5,12 +5,14 @@ import bb.system 1.2
 import bb.system.phone 1.0
 import org.tal 1.0
 import org.tal.bbm 1.0
+import org.tal.sopomygga 1.0
 
 Page {
     id: root
     
     property string currentChannel: ''
     property variant channel;
+    property bool hasChannel: channel==undefined ? true : false
     property bool stopOnOutgoingCall: false;
     property bool stopOnIncomingCall: false;
     
@@ -95,6 +97,15 @@ Page {
             ActionBar.placement: ActionBarPlacement.Signature
             enabled: mp.mediaState!=MediaState.Unprepared
             defaultAction: true
+        },
+        ActionItem {
+            id: channelActions
+            enabled: hasChannel
+            imageSource: "asset:///images/web.png"
+            ActionBar.placement: ActionBarPlacement.InOverflow
+            onTriggered: {
+                
+            }
         }
     ]
     Container {
@@ -104,46 +115,33 @@ Page {
             focusPolicy: NavigationFocusPolicy.NotFocusable
         }
         
-        Container {
-            id: offlineBanner
-            horizontalAlignment: HorizontalAlignment.Fill
+        OfflineContainer {
             visible: !_yradio.onLine
-            
-            Label {
-                horizontalAlignment: HorizontalAlignment.Fill
-                textStyle.fontSize: FontSize.XLarge
-                text: qsTr("Off-line")
-                textStyle.color: Color.White
-            }
-            
-            Label {                
-                horizontalAlignment: HorizontalAlignment.Fill
-                textStyle.fontSize: FontSize.Medium
-                text: qsTr("You are off-line, please connect to a network to enable streaming")
-                textStyle.color: Color.LightGray
-                autoSize.maxLineCount: 3
-                multiline: true
-                textStyle.textAlign: TextAlign.Center;                
-            }
-            Button {
-                text: qsTr("Network settings")
-                onClicked: {
-                    invokeNetworkSettings.trigger("bb.action.OPEN")
-                }
+        }
+        
+        Container {
+            id: videoContainer
+            visible: mp.hasVideo
+            horizontalAlignment: HorizontalAlignment.Fill
+            preferredHeight: fw.preferredHeight
+            topMargin: 8.0
+            bottomMargin: 8.0
+            ForeignWindowControl {
+                id: fw
+                windowId: "videoWindowId"
+                preferredWidth: 640
+                preferredHeight: 360
                 horizontalAlignment: HorizontalAlignment.Center
-            }
-            attachedObjects: [
-                Invocation {
-                    id: invokeNetworkSettings
-                    query {
-                        invokeTargetId: "sys.settings.target"
-                        mimeType: "settings/view"
-                        uri: "settings://networkconnections"
-                    }
+                updatedProperties: WindowProperty.Size | WindowProperty.Position | WindowProperty.Visible
+                visible: boundToWindow
+                onWindowAttached: {
+                    console.debug("Attached!")
                 }
-            ]
-            verticalAlignment: VerticalAlignment.Center
-            background: Color.Black
+                onWindowDetached: {
+                    console.debug("Detached!")
+                }
+                verticalAlignment: VerticalAlignment.Center
+            }
         }
         
         ListView {
@@ -160,8 +158,10 @@ Page {
             visible: _yradio.onLine
             
             property alias channelModel: dataModelRadio
+            property alias nowPlayingModel: nowplayingModel
             property alias mainRoot: root
             property alias currentChannel: root.channel
+            property alias hasChannel: root.hasChannel
             property alias isLoading: root.isLoading
             
             property int actualWidth: 768
@@ -215,51 +215,59 @@ Page {
                         preferredWidth: nowPlaying.ListItem.view.actualWidth
                         background: Color.Black
                         topPadding: 32.0
+                        
                         property variant channel: nowPlaying.ListItem.view.currentChannel
+                        property bool hasChannel: channel==undefined ? false : true;
                         
                         ImageView {
                             imageSource: "asset:///images/icon.png"
                             horizontalAlignment: HorizontalAlignment.Center
-                            topMargin: 16.0
-                            bottomMargin: 16.0
-                            minWidth: 114.0
-                            minHeight: 114.0
-                            maxWidth: 132.0
-                            maxHeight: 132.0
+                            topMargin: 16
+                            bottomMargin: 16
+                            minWidth: 114
+                            minHeight: 114
+                            maxWidth: 480
+                            maxHeight: 480
+                            visible: !hasChannel
                         }
                         
                         ActivityIndicator {
                             id: bufferingIndicator
-                            minWidth: 64.0
-                            minHeight: 64.0
-                            maxWidth: 128.0
-                            maxHeight: 128.0
+                            minWidth: 96
+                            minHeight: 96
+                            maxWidth: 128
+                            maxHeight: 128
                             visible: running
                             running: nowPlaying.ListItem.view.isLoading
                             horizontalAlignment: HorizontalAlignment.Center
                         }
                         
                         Label {
-                            //visible: channel!=undefined ? true : false
                             textStyle.textAlign: TextAlign.Center
                             text: channel==undefined ? 'No channel selected' : channel.name
                             horizontalAlignment: HorizontalAlignment.Fill
                             textStyle.color: Color.White
-                            textStyle.fontSize: FontSize.XLarge
+                            textStyle.fontSize: FontSize.XXLarge
+                            bottomMargin: 32.0
+                            topMargin: 32.0
                         }
+                        
                         Label {
-                            visible: channel==undefined ? true : false
-                            textStyle.fontSize: FontSize.Medium
+                            visible: !hasChannel
+                            textStyle.fontSize: FontSize.Large
                             textStyle.color: Color.LightGray
                             horizontalAlignment: HorizontalAlignment.Fill
                             textStyle.textAlign: TextAlign.Center
                             text: qsTr("Swipe left for channels list")
                         }
-                        /*
-                         ListView {
-                         id: nowPlayingList
-                         }
-                         */
+                        
+                        NowPlayingListView {
+                            id: nowPlayingList
+                            dataModel: nowPlaying.ListItem.view.nowPlayingModel
+                            minHeight: 256
+                            maxHeight: 512
+                            horizontalAlignment: HorizontalAlignment.Fill
+                        }
                     }
                 }
             ]
@@ -308,7 +316,7 @@ Page {
             channel=data;
             mainListView.scrollToPosition(ScrollPosition.Beginning, ScrollAnimation.Smooth);
             isLoading=true;
-            playStarter.start();                        
+            playStarter.start();
         } else {                
             currentChannel='';
             channel=undefined;
@@ -318,9 +326,20 @@ Page {
             mediaErrorToast.body="Failed to set playback stream" 
             mediaErrorToast.show()          
         }
+        updateNowplaying();
     }
     
-    function getHlsStream(m) {                                            
+    function updateNowplaying() {
+        nowplayingModel.clear();
+        nowplayingModel.insert({"order": "0", "start": "12:10", "artist": "Dummy Artist", "title": "Songname"})
+        nowplayingModel.insert({"order": "1", "start": "12:20", "artist": "Dummy Artti", "title": "NameSong"})
+    }
+    
+    function getHlsStream(m) {
+        console.debug("HLS: ")
+        console.debug(m)
+        if (m.type)
+            return m;
         for (var i in m) {
             var s=m[i];
             if (s.type=='hls') {                        
@@ -343,25 +362,7 @@ Page {
     onCreationCompleted: {
         dataSource.load();
         bbm.registerApplication();
-        eqModel.insert({"eid": EqualizerPreset.Off, "title": "Off"})
-        eqModel.insert({"eid": EqualizerPreset.Airplane, "title": "Airplane"})
-        eqModel.insert({"eid": EqualizerPreset.BassBoost, "title": "Bass Boost"})
-        eqModel.insert({"eid": EqualizerPreset.TrebleBoost, "title": "Treble Boost"})
-        eqModel.insert({"eid": EqualizerPreset.VoiceBoost, "title": "Voice Boost"})
-        eqModel.insert({"eid": EqualizerPreset.BassLower, "title": "Bass Lower"})
-        eqModel.insert({"eid": EqualizerPreset.TrebleLower, "title": "Treble Lower"})
-        eqModel.insert({"eid": EqualizerPreset.VoiceLower, "title": "Voice Lower"})
-        eqModel.insert({"eid": EqualizerPreset.Acoustic, "title": "Acoustic"})
-        eqModel.insert({"eid": EqualizerPreset.Dance, "title": "Dance"})
-        eqModel.insert({"eid": EqualizerPreset.Electronic, "title": "Electronic"})
-        eqModel.insert({"eid": EqualizerPreset.HipHop, "title": "Hip Hop"})
-        eqModel.insert({"eid": EqualizerPreset.Jazz, "title": "Jazz"})
-        eqModel.insert({"eid": EqualizerPreset.Lounge, "title": "Lounge"})
-        eqModel.insert({"eid": EqualizerPreset.Piano, "title": "Piano"})
-        eqModel.insert({"eid": EqualizerPreset.RhythmAndBlues, "title": "Rhythm and Blues"})
-        eqModel.insert({"eid": EqualizerPreset.Rock, "title": "Rock"})
-        eqModel.insert({"eid": EqualizerPreset.SpokenWord, "title": "Spoken Word"})
-        
+
         currentEq=settings.getBool("savedEq", EqualizerPreset.Off);
         stopOnIncomingCall=settings.getBool("stopIncoming", false);
         stopOnOutgoingCall=settings.getBool("stopOutgoing", false);
@@ -369,6 +370,9 @@ Page {
         phone.callUpdated.connect(_yradio.onCallUpdated);
         _yradio.incomingCall.connect(incomingCall);
         _yradio.outgoingCall.connect(outgoingCall);
+        
+        var r=mqtt.connectToHost();
+        console.debug("R="+r)
     }
     
     attachedObjects: [
@@ -377,12 +381,6 @@ Page {
         },
         Phone {
             id: phone
-        },
-        GroupDataModel {
-            id: eqModel
-            grouping: ItemGrouping.None
-            sortedAscending: true
-            sortingKeys: ["eid"]
         },
         Timer {
             id: playStarter
@@ -398,13 +396,28 @@ Page {
         },
         MediaPlayer {
             id: mp
+            videoOutput: VideoOutput.PrimaryDisplay
+            repeatMode: RepeatMode.None
+            windowId: fw.windowId
+            property bool hasVideo: false;
+            onVideoDimensionsChanged: {
+                console.debug("Got video dimensions")
+                console.debug(videoDimensions.width)
+                console.debug(videoDimensions.height)
+                hasVideo=(videoDimensions.width>0 && videoDimensions.height>0) ? true : false; 
+            }
             onError: {
                 console.debug("Error: "+mediaError)
                 mediaErrorToast.body="Error: "+mediaError                
                 mediaErrorToast.show();
+                npc.revoke();
+                mp.reset();
+                hasVideo=false;
             }
             onMediaStateChanged: {
                 console.debug("State: "+mediaState)
+                if (mediaState==mediaState.Stopped)
+                    hasVideo=false;
             }
             onPlaybackCompleted: {
                 console.debug("Completed")
@@ -432,6 +445,9 @@ Page {
                 console.debug("Source set to: "+sourceUrl)
             }
             equalizerPreset: currentEq
+            onEqualizerPresetChanged: {
+                root.currentEq=equalizerPreset;
+            }
         },
         NowPlayingConnection {
             id: npc
@@ -442,7 +458,7 @@ Page {
             onAcquired: {
                 console.debug("onAcquired")
                 
-                var metadata = { "title": root.currentChannel, "artist": "YLE Radio" };
+                var metadata = { "title": root.currentChannel, "album": "YLE Radio: "+root.currentChannel };
                 npc.setMetaData(metadata);
                 
                 console.debug("Asking player to play")
@@ -476,43 +492,23 @@ Page {
         SettingsSheet {
             id: settingsSheet            
         },
-        Sheet {
+        EqualizerSheet {
             id: eqSheet
-            Page {
-                titleBar: TitleBar {
-                    title: qsTr("Equalizer")
-                    kind: TitleBarKind.Default
-                    dismissAction: ActionItem {
-                        title: qsTr("Close");
-                        onTriggered: {
-                            eqSheet.close();
-                        }
-                        ActionBar.placement: ActionBarPlacement.Default
-                    }
-                
-                }
-                ListView {
-                    dataModel: eqModel
-                    onTriggered: {
-                        var eq = dataModel.data(indexPath);
-                        console.debug("EQ: "+eq["eid"])
-                        mp.equalizerPreset=eq["eid"];
-                        root.currentEq=eq["eid"];
-                    }
-                    listItemComponents: [
-                        ListItemComponent {
-                            type: "item"
-                            StandardListItem {
-                                title: ListItemData.title
-                            }
-                        }
-                    ]
-                }
+            currentEq: root.currentEq
+            onEqualizerPreset: {
+                console.debug("EQP: "+eid)
+                mp.equalizerPreset=eid;
             }
         },
         SystemToast {
             id: mediaErrorToast            
             position: SystemUiPosition.MiddleCenter
+            modality: SystemUiModality.Application
+        },
+        GroupDataModel {
+            id: nowplayingModel
+            grouping: ItemGrouping.ByFullValue
+            sortingKeys: ["order"]
         },
         GroupDataModel {
             id: dataModelRadio
@@ -534,6 +530,32 @@ Page {
                 console.log("DataSourceErrorType:"+errorType);
             }
             type: DataSourceType.Xml
+        },
+        GroupDataModel {
+              id: songInfo  
+        },
+        MQTT {
+            id: mqtt
+            keepalive: 60
+            clientId: "talorg-bb10-yradio-"+_yradio.getUUID(); // XXX Need a unique client id somehow???
+            //clientId: "talorg-bb10-yradio"
+            hostname: "amos.tal.org"
+            onConnected: {
+                console.debug("MQTT Connected")
+                subscribe("radio/#")
+            }
+            onDisconnected: {
+                console.debug("MQTT Disconnected")
+            }
+            onConnecting: {
+                console.debug("MQTT Connecting")
+            }
+            onMsg: {
+                console.debug("Topic:"+topic)
+            }
+            onError: {
+                console.debug("MQTT Error")
+            }
         }
     ]
     actionBarVisibility: ChromeVisibility.Default
