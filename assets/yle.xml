@@ -58,6 +58,21 @@
          <some type="instagram">http://instagram.com/radiox3m</some>
         </somes>
   </channel>
+  
+    <channel>
+	<name>YLE X3M (Studio video)</name>
+        <category></category>
+	<streams>
+	<stream type="hls" quality="high">http://yleuni2-lh.akamaihd.net/i/x3mstudiolive_2@174552/index_800_av-p.m3u8</stream>
+	</streams>
+        <somes>
+         <some type="web">http://yle.fi/extrem/</some>
+         <some type="twitter">https://twitter.com/RadioX3M</some>
+         <some type="facebook">https://m.facebook.com/radiox3m</some>
+         <some type="youtube">http://m.youtube.com/user/RadioX3M</some>
+         <some type="instagram">http://instagram.com/radiox3m</some>
+        </somes>
+  </channel>
 
   <channel>
 	<name>YLEX</name>
