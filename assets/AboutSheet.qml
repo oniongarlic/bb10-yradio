@@ -50,6 +50,7 @@ Sheet {
                         _yradio.openWebSite("mailto:yradio@tal.org");
                     }
                     horizontalAlignment: HorizontalAlignment.Center
+                    imageSource: "asset:///images/at-sign.png"
                 }                
                 Button {
                     text: "Y-Radio project page"
@@ -57,6 +58,7 @@ Sheet {
                         _yradio.openWebSite("http://www.tal.org/projects/y-radio");
                     }
                     horizontalAlignment: HorizontalAlignment.Center
+                    imageSource: "asset:///images/web.png"
                 }    
                 Label {
                     multiline: true
@@ -74,6 +76,8 @@ Sheet {
                 }
                 Label {
                     text: "Uses Subway icons, CC BY 4.0"
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    textStyle.textAlign: TextAlign.Center
                 }
                 Button {
                     text: "CC BY 4.0"
