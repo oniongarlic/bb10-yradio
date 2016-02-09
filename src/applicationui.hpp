@@ -30,15 +30,17 @@ public:
     ApplicationUI();
     virtual ~ApplicationUI() {}
 
-    Q_INVOKABLE QString getVersion();
+    Q_INVOKABLE QString getVersion() const;
+    Q_INVOKABLE QString getUUID() const;
+    Q_INVOKABLE QString getTempPath() const;
+
     Q_INVOKABLE void openWebSite(const QString url);
-    Q_INVOKABLE QString getTempPath();
 
 signals:
     void incomingCall(int status);
     void outgoingCall(int status);
     void callEnded();
-    void isOnlineChanged();
+    void isOnlineChanged(bool online);
 
 private slots:
     void onSystemLanguageChanged();
@@ -56,6 +58,8 @@ private:
     QSettings m_settings;
     QNetworkConfigurationManager* m_netconf;
     bool m_isonline;
+
+    QString m_uuid;
 };
 
 #endif /* ApplicationUI_HPP_ */

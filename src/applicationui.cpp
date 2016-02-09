@@ -4,6 +4,7 @@
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtGui/QFont>
+#include <QUuid>
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
@@ -17,8 +18,8 @@
 #include <bb/data/DataSource>
 
 #include "settings.h"
-
 #include "BBMHandler.h"
+#include "sopomygga.h"
 
 using namespace bb::cascades;
 
@@ -47,6 +48,8 @@ ApplicationUI::ApplicationUI() :
     qmlRegisterType<BBMHandler>("org.tal.bbm", 1, 0, "BBMHandler");
     qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
 
+    qmlRegisterType<SopoMygga>("org.tal.sopomygga", 1, 0, "MQTT");
+
     QCoreApplication::setOrganizationDomain("org.tal");
     QCoreApplication::setOrganizationName("TalOrg");
     QCoreApplication::setApplicationName("Y-Radio");
@@ -57,7 +60,17 @@ ApplicationUI::ApplicationUI() :
     Q_ASSERT(res);
 
     m_isonline=m_netconf->isOnline();
-    emit isOnlineChanged();
+    emit isOnlineChanged(m_isonline);
+
+    m_uuid=settings->getStr("GUID", "");
+    if (m_uuid.isEmpty()) {
+        QUuid tmp=QUuid::createUuid();
+        m_uuid=tmp.toString();
+        settings->setStr("GUID", m_uuid);
+        qDebug() << "NEW UUID is " << m_uuid;
+    } else {
+        qDebug() << "Stored UUID: " << m_uuid;
+    }
 
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
     qml->setContextProperty("_yradio", this);
@@ -66,9 +79,14 @@ ApplicationUI::ApplicationUI() :
     Application::instance()->setScene(root);
 }
 
-QString ApplicationUI::getTempPath()
+QString ApplicationUI::getTempPath() const
 {
     return  QDir::tempPath();
+}
+
+QString ApplicationUI::getUUID() const
+{
+    return m_uuid;
 }
 
 void ApplicationUI::openWebSite(const QString url)
@@ -95,7 +113,7 @@ void ApplicationUI::onNetworkOnlineChanged(bool online) {
         return;
 
     m_isonline=online;
-    emit isOnlineChanged();
+    emit isOnlineChanged(m_isonline);
 }
 
 void ApplicationUI::onCallUpdated(const bb::system::phone::Call &call) {
@@ -127,7 +145,7 @@ void ApplicationUI::onCallUpdated(const bb::system::phone::Call &call) {
     }
 }
 
-QString ApplicationUI::getVersion() {
+QString ApplicationUI::getVersion() const {
     return QCoreApplication::applicationVersion();
 }
 
