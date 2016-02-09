@@ -39,6 +39,7 @@ Sheet {
                 Label {
                     text: qsTr("Autostop on call")                    
                     textFormat: TextFormat.Plain
+                    textStyle.fontSize: FontSize.Medium
                 }  
                 
                 CheckBox {
