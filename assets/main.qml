@@ -32,8 +32,21 @@ Page {
     }
     
     titleBar: TitleBar {
-        title: currentChannel=='' ? "Y-Radio" : "Y-Radio - "+currentChannel
+        //title: currentChannel=='' ? "Y-Radio" : "Y-Radio - "+currentChannel
+        title: getActiveTitle(listScroll.firstVisibleItem[0], currentChannel)
         scrollBehavior: TitleBarScrollBehavior.Sticky
+    }
+    
+    function getActiveTitle(vid, cc) {
+        switch (vid) {
+            case 0:
+                return cc=='' ? "Y-Radio" : "Y-Radio - "+cc
+            case 1:
+                return "Channels"
+            default:
+                return "Y-Radio"
+                
+        }
     }
     
     function incomingCall(status) {
