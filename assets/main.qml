@@ -422,6 +422,8 @@ NavigationPane {
         }
         
         onCreationCompleted: {
+            var r;
+            
             dataSource.load();
             bbm.registerApplication();
             
@@ -433,8 +435,8 @@ NavigationPane {
             _yradio.incomingCall.connect(incomingCall);
             _yradio.outgoingCall.connect(outgoingCall);
             
-            var r=mqtt.connectToHost();
-            console.debug("R="+r)
+            // r=mqtt.connectToHost();
+            // console.debug("R="+r)
         }
         
         attachedObjects: [
