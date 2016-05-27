@@ -31,8 +31,6 @@
 	<stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_1_64@113878</stream>
         <stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_1@113878/master.m3u8</stream>
         </streams>
-        <songInfo>r01</songInfo>
-        <progInfo>yleradio1</progInfo>
         <somes>
          <some type="web">http://yle.fi/radio/yleradio1/</some>
          <some type="twitter">https://twitter.com/yleradio1</some>
@@ -42,14 +40,12 @@
 
   <channel>
 	<name>YLE X3M</name>
-        <category></category>
+        <category>X3M</category>
 	<streams>
         <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_6_64@113883</stream>
 	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_6@113883/master.m3u8</stream>
 	</streams>
-	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
-        <songInfo>r44</songInfo>
-	<progInfo>extrem</progInfo>
+	<news>http://svenska.yle.fi/rss/x3m</news>
         <somes>
          <some type="web">http://yle.fi/extrem/</some>
          <some type="twitter">https://twitter.com/RadioX3M</some>
@@ -60,10 +56,10 @@
   </channel>
   
     <channel>
-	<name>YLE X3M (Studio video)</name>
-        <category></category>
+	<name>YLE X3M (Video: Helsingfors)</name>
+        <category>X3M</category>
 	<streams>
-	<stream type="hls" quality="high">http://yleuni2-lh.akamaihd.net/i/x3mstudiolive_2@174552/index_800_av-p.m3u8</stream>
+	<stream type="hls" quality="high">http://yleuni2-lh.akamaihd.net/i/x3mhki1_1@356905/index_750_av-p.m3u8</stream>
 	</streams>
         <somes>
          <some type="web">http://yle.fi/extrem/</some>
@@ -73,6 +69,22 @@
          <some type="instagram">http://instagram.com/radiox3m</some>
         </somes>
   </channel>
+  
+      <channel>
+	<name>YLE X3M (Video: Vasa)</name>
+        <category>X3M</category>
+	<streams>
+	<stream type="hls" quality="high">http://yleuni2-lh.akamaihd.net/i/x3mvaasa_1@356904/index_750_av-p.m3u8</stream>
+	</streams>
+        <somes>
+         <some type="web">http://yle.fi/extrem/</some>
+         <some type="twitter">https://twitter.com/RadioX3M</some>
+         <some type="facebook">https://m.facebook.com/radiox3m</some>
+         <some type="youtube">http://m.youtube.com/user/RadioX3M</some>
+         <some type="instagram">http://instagram.com/radiox3m</some>
+        </somes>
+  </channel>
+  
 
   <channel>
 	<name>YLEX</name>
@@ -81,9 +93,7 @@
         <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_2_64@113879</stream>
 	<stream type="hls" quality="high">http://yleuni-f.akamaihd.net/i/yleliveradiohd_2@113879/master.m3u8</stream>
 	</streams>
-	<news type="rss"></news>
-        <songInfo>r02</songInfo>
-	<progInfo>ylex</progInfo>
+	<news></news>
 	<somes>
          <some type="web">http://ylex.yle.fi/</some>
 	 <some type="twitter">http://www.twitter.com/ylex</some>
