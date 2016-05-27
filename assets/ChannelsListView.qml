@@ -67,6 +67,7 @@ ListView {
         radioList.select(indexPath);
     }
     
+    
     function hasWebType(type, data) {                
         for (var i in data) {
             var s=data[i];                    
