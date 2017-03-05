@@ -62,7 +62,7 @@ Sheet {
                 }    
                 Label {
                     multiline: true
-                    text: qsTr("Unofficial Radio application for Finnish broadcasting company Yleisradio radio stations.")
+                    text: qsTr("Unofficial Radio application for: Finnish Yleisradio, Swedish Sverigesradio, Norway NRK.")
                     textStyle.fontSize: FontSize.Medium
                     textStyle.textAlign: TextAlign.Justify
                     textFormat: TextFormat.Plain
