@@ -15,6 +15,8 @@ NavigationPane {
     property string currentChannel: ''
     property string newsUrl: ''
     
+    property int country: 0;
+    
     property bool hasChannel: channel==undefined ? true : false
     property bool stopOnOutgoingCall: false;
     property bool stopOnIncomingCall: false;
@@ -23,6 +25,9 @@ NavigationPane {
     property bool isLoading: false;
     
     property int currentEq: EqualizerPreset.Off
+    
+    property string npTitle: ""
+    property string npArtist: ""
     
     onCurrentEqChanged: {
         settings.setBool("savedEq", currentEq);
@@ -156,8 +161,8 @@ NavigationPane {
                 ForeignWindowControl {
                     id: fw
                     windowId: "videoWindowId"
-                    preferredWidth: 640/videoContainer.activeScale
-                    preferredHeight: 368/videoContainer.activeScale
+                    preferredWidth: maxWidth/videoContainer.activeScale
+                    preferredHeight: maxHeight/videoContainer.activeScale
                     minHeight: 180
                     maxHeight: mainListView.actualWidth/ratio
                     minWidth: 320
@@ -213,6 +218,11 @@ NavigationPane {
                 
                 property int actualWidth: 768
                 
+                property int c: country
+                
+                property string npTitle: np.npTitle
+                property string npArtist: np.npArtist
+                
                 onActualWidthChanged: {
                     console.debug("AW: "+actualWidth)
                 }
@@ -224,6 +234,11 @@ NavigationPane {
                 function openUrl(url) {
                     _yradio.openWebSite(url);
                 }
+                function setCountry(cid) {
+                    country=cid;
+                    root.loadChannelData();
+                    settings.setInt("country", cid)
+                }
                 
                 listItemComponents: [
                     ListItemComponent {
@@ -234,6 +249,38 @@ NavigationPane {
                             minWidth: 720.0
                             preferredWidth: radioList.ListItem.view.actualWidth
                             verticalAlignment: VerticalAlignment.Fill
+                            
+                            property int cs: radioList.ListItem.view.c
+
+                            DropDown {
+                                id: countrySelector
+                                title: qsTr("Country")
+                                onSelectedOptionChanged: {
+                                    
+                                }
+                                onSelectedValueChanged: {
+                                    console.debug(selectedValue)
+                                    radioList.ListItem.view.setCountry(selectedValue)
+                                }
+                                topMargin: 8.0
+                                bottomMargin: 8.0
+                                Option {
+                                    text: "Finland/Suomi (YLE)"
+                                    value: 0
+                                    selected: radioList.cs==value
+                                }
+                                Option {
+                                    text: "Norway/Norge (NRK)"
+                                    value: 1
+                                    selected: radioList.cs==value
+                                }
+                                Option {
+                                    text: "Sweden/Sverige (SR)"
+                                    value: 2
+                                    selected: radioList.cs==value
+                                }
+
+                            }
                             ChannelsListView {
                                 minWidth: 720
                                 preferredWidth: radioList.preferredWidth                     
@@ -304,11 +351,25 @@ NavigationPane {
                             
                             Label {
                                 // visible: !hasChannel
-                                textStyle.fontSize: FontSize.Large
+                                textStyle.fontSize: FontSize.Medium
                                 textStyle.color: Color.LightGray
                                 horizontalAlignment: HorizontalAlignment.Fill
                                 textStyle.textAlign: TextAlign.Center
                                 text: qsTr("Swipe left for channels list")
+                            }
+                            
+                            Label {
+                                id: nowPlayingTitle
+                                visible: hasChannel
+                                textStyle.fontSize: FontSize.Large
+                                textStyle.color: Color.White
+                                horizontalAlignment: HorizontalAlignment.Fill
+                                textStyle.textAlign: TextAlign.Center
+                                text: nowPlaying.ListItem.view.npTitle
+                                autoSize.maxLineCount: 3
+                                textFit.minFontSizeValue: 10.0
+                                textFormat: TextFormat.Plain
+                                textFit.mode: LabelTextFitMode.Standard
                             }
                             
                             NowPlayingListView {
@@ -397,6 +458,7 @@ NavigationPane {
             nowplayingModel.clear();
         }
         
+        // XXX: Need to figure out quality
         function getHlsStream(m) {
             console.debug("HLS: ")
             console.debug(m)
@@ -411,6 +473,7 @@ NavigationPane {
             return null;
         }
         
+        // XXX: Not used at this time
         function getRTSPStream(m) {                                            
             for (var i in m) {
                 var s=m[i];
@@ -421,10 +484,26 @@ NavigationPane {
             return null;
         }
         
+        function loadChannelData() {
+            switch (country) {
+                case 0: // FI
+                    dataSource.source="asset:///yle.xml"
+                    break;
+                case 1: // NO
+                    dataSource.source="asset:///nrk.xml"
+                    break;
+                case 2: // SV
+                    dataSource.source="asset:///sr.xml"
+                    break;
+                default:
+                    dataSource.source="asset:///yle.xml"
+            }
+            dataSource.load();
+        }
+        
         onCreationCompleted: {
             var r;
             
-            dataSource.load();
             bbm.registerApplication();
             
             currentEq=settings.getBool("savedEq", EqualizerPreset.Off);
@@ -437,6 +516,10 @@ NavigationPane {
             
             // r=mqtt.connectToHost();
             // console.debug("R="+r)
+            
+            country=settings.getInt("country", 0);
+            
+            loadChannelData();
         }
         
         attachedObjects: [
@@ -502,7 +585,13 @@ NavigationPane {
                 }
                 onMetaDataChanged: {
                     console.debug("Got metadata: "+JSON.stringify(metaData))
-                    // npc.setMetaData(metadata)
+                    var md = { "title": root.currentChannel, "album": root.currentChannel };
+                    
+                    if (metaData.title) {
+                        npTitle=metaData.title
+                        md.title=metaData.title
+                    }
+                    npc.setMetaData(md)
                 }
                 onBufferStatusChanged: {
                     console.debug("BufferStatus:"+bufferStatus)
@@ -518,6 +607,7 @@ NavigationPane {
                 }                       
                 onSourceUrlChanged: {
                     console.debug("Source set to: "+sourceUrl)
+                    nowPlayingTitle.text=""
                 }
                 equalizerPreset: currentEq
                 onEqualizerPresetChanged: {
@@ -533,7 +623,7 @@ NavigationPane {
                 onAcquired: {
                     console.debug("onAcquired")
                     
-                    var metadata = { "title": root.currentChannel, "album": "YLE Radio: "+root.currentChannel };
+                    var metadata = { "title": root.currentChannel, "album": root.currentChannel };
                     npc.setMetaData(metadata);
                     
                     console.debug("Asking player to play")
@@ -607,6 +697,7 @@ NavigationPane {
                 onDataLoaded: {
                     console.debug("Loaded!"+data)
                     console.log("Channels loaded:"+data.length);
+                    dataModelRadio.clear();
                     dataModelRadio.insertList(data);                
                 }
                 onError: {
