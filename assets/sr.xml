@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<radio id="svr">
+ <channels>
+
+ <!-- http://sverigesradio.se/sida/gruppsida.aspx?programid=3756&grupp=10632&artikel=4229149 -->
+ 
+  <channel>
+        <name>P1</name>
+        <category>P1</category>
+        <streams>
+		<stream type="___hls" quality="low">http://sverigesradio.se/topsy/direkt/132-lo-mp3.mp3</stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/132-lo-mp3.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  <channel>
+        <name>P2 Music</name>
+        <category>P2</category>
+        <streams>
+		<stream type="__hls" quality="low">http://sverigesradio.se/topsy/direkt/2562-lo-mp3.mp3</stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/2562-mp3.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+  <channel>
+        <name>P3</name>
+        <category>P3</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/164.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/179.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+  <channel>
+        <name>P4 Blekinge</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/213.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Dalarna</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/223.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>P4 Gotland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/205.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+
+  
+    <channel>
+        <name>P4 Gävleborg</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/210.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Göteborg</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/212.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Halland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/220.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Jämtland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/200.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Jönköping</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/203.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Kalmar</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/201.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Kristianstad</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/211.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Kronoberg</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/214.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Malmöhus</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/207.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Norrbotten</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/209.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Sjuhärad</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/206.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Skaraborg</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/208.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Stockholm</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/701.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+
+  
+    <channel>
+        <name>P4 Sörmland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/202.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Uppland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/218.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Värmland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/204.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Väst</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/219.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Västerbotten</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/215.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Västernorrland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/216.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Västmanland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/217.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Örebro</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/221.mp</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+    <channel>
+        <name>P4 Östergötland</name>
+        <category>P4</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/222.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+
+    <channel>
+        <name>Din gata</name>
+        <category></category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/2576.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>P5 Sthlm</name>
+        <category>P5</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/2842.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>P2 Riks</name>
+        <category>P2</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/163.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>P6</name>
+        <category>P6</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/166.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>P3 Star</name>
+        <category>P3</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/1607.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>SR Klassiskt</name>
+        <category>SR</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/1603.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>SR Sápmi</name>
+        <category>SR</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/224.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>SR Sisuradio</name>
+        <category>SR</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/226.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+    <channel>
+        <name>SR Världen</name>
+        <category>SR</category>
+        <streams>
+		<stream type="__hls" quality="low"></stream>
+        <stream type="hls" quality="high">http://sverigesradio.se/topsy/direkt/2619.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+        </somes>
+  </channel>
+  
+ </channels>
+</radio>
