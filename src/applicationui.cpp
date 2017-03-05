@@ -53,7 +53,7 @@ ApplicationUI::ApplicationUI() :
     QCoreApplication::setOrganizationDomain("org.tal");
     QCoreApplication::setOrganizationName("TalOrg");
     QCoreApplication::setApplicationName("Y-Radio");
-    QCoreApplication::setApplicationVersion("1.0.3");
+    QCoreApplication::setApplicationVersion("1.0.4");
 
     m_netconf=new QNetworkConfigurationManager();
     res = QObject::connect(m_netconf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onNetworkOnlineChanged(bool)));
